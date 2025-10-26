@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FWRI Access View</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+  <header class="app-header">
+    <h1>FWRI Access View</h1>
+  </header>
+
+
+  <!-- Filter Bar -->
+  <div class = "filter-bar">
+    <div class = "filter-group">
+      <label for = "search">Search</label>
+      <input type = "text" id = "search" placeholder = "Search..." />
+    </div>
+    <div class = "filter-group">
+      <label for = "employee">Search by Employee</label>
+      <input type = "text" id = "employee" placeholder = "Enter first and last name" />
+    </div>
+    <div class = "filter-group">
+      <label for = "start-date">Start Date</label>
+      <input type = "date" id = "start-date" />
+    </div>
+    <div class = "filter-group">
+      <label for = "end-date">End Date</label>
+      <input type = "date" id = "end-date" />
+    </div>
+  </div>
+
+  <!-- Title Bar -->
+  <div class = "title-bar">
+    <div class = "title-inner">
+      <h3>Access Event Log</h3>
+    </div>
+  </div>
+
+  <!-- Access Events Table -->
+  <div class = "access-table">
+    <table>
+      <thead>
+        <tr>
+          <th>Snapshot</th>
+          <th>Employee Photo</th>
+          <th>Date / Time</th>
+          <th>Employee Name</th>
+          <th>Entry Type</th>
+          <th>Status</th>
+          <th></th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <!-- Example Row 1 -->
+        <tr>
+          <td><img src = "/static/images/IMG001.jpg" alt = "snapshot" class = "thumb"></td>
+          <td><img src = "/static/images/profile_ali.jpg" alt = "employee photo" class = "thumb"></td>
+          <td>02/01/2025 08:30 AM</td>
+          <td>Stephanie Ali</td>
+          <td>Entering</td>
+          <td><span class = "active">Active</span></td>
+          <td><button class = "view-btn">View</button></td>
+        </tr>
+
+        <tr class = "details">
+          <td colspan = "7">
+            <div class = "details-card">
+
+              <!-- Column 1: Employee Photo -->
+              <div class = "details-photo">
+                <img src = "/static/images/IMG001.jpg" alt = "Employee photo" class = "employee-photo">
+              </div>
+
+              <!-- Column 2: Employee Info -->
+              <div class = "details-info">
+                <h3>Employee Information</h3>
+                <p><strong>First Name:</strong> Stephanie</p>
+                <p><strong>Last Name:</strong> Ali</p>
+                <p><strong>Title:</strong> Analyst</p>                
+                <p><strong>Email:</strong> sali@fwri.gov</p>
+                <p><strong>Birth Date:</strong> 1994-11-04</p>
+                <p><strong>Start Date:</strong> 2022-05-16</p>
+                <p><strong>Employee ID:</strong> 1</p>
+                <p><strong>Keycard ID:</strong> 11111111-1111-1111-1111-111111111111</p>
+                <p><strong>Is Active:</strong> Yes</p>
+              </div>
+
+              <!-- Column 3: Scanner ID -->
+              <div class = "details-scanner">
+                <p><strong>Scanner ID:</strong> fd001001-fd01-fd01-fd01-fd0000000001</p>
+              </div>
+            </div>
+          </td>
+        </tr>
+
+        <!-- Example Row 2 -->
+        <tr>
+          <td><img src = "/static/images/IMG001.jpg" alt = "snapshot" class = "thumb"></td>
+          <td><img src = "/static/images/profile_ali.jpg" alt = "employee photo" class = "thumb"></td>
+          <td>02/01/2025 08:30 AM</td>
+          <td>Stephanie Ali</td>
+          <td>Entering</td>
+          <td><span class = "active">Active</span></td>
+          <td><button class = "view-btn">View</button></td>
+        </tr>
+
+        <tr class = "details">
+          <td colspan = "7">
+            <div class = "details-card">
+
+              <!-- Column 1: Employee Photo -->
+              <div class = "details-photo">
+                <img src = "/static/images/IMG001.jpg" alt = "Employee photo" class = "employee-photo">
+              </div>
+
+              <!-- Column 2: Employee Info -->
+              <div class = "details-info">
+                <h3>Employee Information</h3>
+                <p><strong>First Name:</strong> Stephanie</p>
+                <p><strong>Last Name:</strong> Ali</p>
+                <p><strong>Title:</strong> Analyst</p>                
+                <p><strong>Email:</strong> sali@fwri.gov</p>
+                <p><strong>Birth Date:</strong> 1994-11-04</p>
+                <p><strong>Start Date:</strong> 2022-05-16</p>
+                <p><strong>Employee ID:</strong> 1</p>
+                <p><strong>Keycard ID:</strong> 11111111-1111-1111-1111-111111111111</p>
+                <p><strong>Is Active:</strong> Yes</p>
+              </div>
+
+              <!-- Column 3: Scanner ID -->
+              <div class = "details-scanner">
+                <p><strong>Scanner ID:</strong> fd001001-fd01-fd01-fd01-fd0000000001</p>
+              </div>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- JavaScript for toggling details -->
+  <script>
+    const viewButtons = document.querySelectorAll('.view-btn');
+    viewButtons.forEach((btn, index) => {
+      btn.addEventListener('click', () => {
+        const detailRow = btn.closest('tr').nextElementSibling;
+        detailRow.style.display = (detailRow.style.display === 'table-row') ? 'none' : 'table-row';
+      });
+    });
+  </script>
+</body>
+</html>

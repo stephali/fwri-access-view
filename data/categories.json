@@ -1,0 +1,8 @@
+[
+    { "categoryId": 15, "categoryName": "Employee Headshot" },
+    { "categoryId": 16, "categoryName": "Security Camera Footage" },
+    { "categoryId": 54, "categoryName": "Entering" },
+    { "categoryId": 55, "categoryName": "Exiting" }
+
+    
+]
