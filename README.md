@@ -43,6 +43,7 @@ If Python isn’t installed, download it from https://www.python.org/downloads/
   python -m venv venv
 ```
 Then activate it:
+
 Windows -
 ```bash
   venv\Scripts\activate
