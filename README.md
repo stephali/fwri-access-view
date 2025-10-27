@@ -38,26 +38,11 @@ To check, open Command Prompt (Windows) or Terminal (Mac/Linux) and run:
   
 If Python isn’t installed, download it from https://www.python.org/downloads/   
 
-### Step 3 - Create a Virtual Environment (optional but recommended)
-Create a Python virtual environment
-```bash
-  python -m venv venv
-```
-Then activate it:
-
-Windows -
-```bash
-  venv\Scripts\activate
-```
-Mac/Linux -
-```bash
-  source venv/bin/activate
-```
-### Step 4 -  Install Flask
+### Step 3 -  Install Flask
 ```bash
   pip install flask
 ```
-### Step 5 -  Run the App
+### Step 4 -  Run the App
 From inside the project folder, run:
 ```bash
   python app.py
