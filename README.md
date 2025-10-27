@@ -5,7 +5,7 @@ The app displays employee facility security access logs, matching each entry wit
 
 ---
 
-## 🧭 Features
+## Features
 - View access logs for all employees
 - Each log includes date/time, entry type (entering/exiting), and employee details
 - Expandable “View” button shows the employee's information and the scanner ID
