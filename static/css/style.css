@@ -22,6 +22,16 @@ body {
   margin: 0;
 }
 
+/* Make title link look like a normal heading */
+.home-link {
+  text-decoration: none;
+  color: #2b4b7c;          /* same color as before */
+}
+
+.home-link:hover {
+  color: #1e365d;          /* darker shade on hover */
+}
+
 /* == Filter Bar == */
 .filter-bar {
   display: flex;

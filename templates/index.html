@@ -9,29 +9,47 @@
 
 <body>
   <header class="app-header">
-    <h1>FWRI Access View</h1>
+    <h1><a href="/" class="home-link">FWRI Access View</a></h1>
   </header>
 
 
   <!-- Filter Bar -->
-  <div class = "filter-bar">
-    <div class = "filter-group">
-      <label for = "search">Search</label>
-      <input type = "text" id = "search" placeholder = "Search..." />
+  <form class="filter-bar" method="get" action="/">
+    <div class="filter-group">
+      <label for="search">Search</label>
+      <input type="text" id="search" name="search" placeholder="Search..." value="{{ request.args.get('search', '') }}">
     </div>
-    <div class = "filter-group">
-      <label for = "employee">Search by Employee</label>
-      <input type = "text" id = "employee" placeholder = "Enter first and last name" />
+
+    <div class="filter-group">
+      <label for="employee">Search by Employee</label>
+      <input type="text" id="employee" name="employee" list="employee-list"
+            placeholder="Enter first and last name"
+            value="{{ request.args.get('employee', '') }}">
+
+      <datalist id="employee-list">
+        {% for name in entries | map(attribute='employee_name') | unique | sort %}
+          <option value="{{ name }}"></option>
+        {% endfor %}
+      </datalist>
+
     </div>
-    <div class = "filter-group">
-      <label for = "start-date">Start Date</label>
-      <input type = "date" id = "start-date" />
+
+    <div class="filter-group">
+      <label for="start-date">Start Date</label>
+      <input type="date" id="start-date" name="start_date" value="{{ request.args.get('start_date', '') }}">
     </div>
-    <div class = "filter-group">
-      <label for = "end-date">End Date</label>
-      <input type = "date" id = "end-date" />
+
+    <div class="filter-group">
+      <label for="end-date">End Date</label>
+      <input type="date" id="end-date" name="end_date" value="{{ request.args.get('end_date', '') }}">
     </div>
-  </div>
+
+    <div class="filter-group">
+      <button type="submit" class="view-btn">Filter</button>
+      <a href="/" class="view-btn" style="background:#888; text-decoration:none;">Clear</a>
+    </div>
+  </form>
+
 
   <!-- Title Bar -->
   <div class = "title-bar">
@@ -105,8 +123,13 @@
             <div class="details-card">
               <!-- Left: Employee Photo -->
               <div class="details-photo">
-                <img src="/static/images/profile_placeholder.jpg" alt="Employee photo">
+                {% if e.profile_image_src %}
+                  <img src="{{ e.profile_image_src }}" alt="Employee photo">
+                {% else %}
+                  <img src="/static/images/profile_placeholder.jpg" alt="Employee photo">
+                {% endif %}
               </div>
+
 
               <!-- Middle: Employee Info -->
               <div class="details-info">
@@ -114,10 +137,13 @@
                 <p><strong>Name:</strong> {{ e.employee_name }}</p>
                 <p><strong>Title:</strong> {{ e.title }}</p>
                 <p><strong>Email:</strong> {{ e.email }}</p>
-                <p><strong>Keycard ID:</strong> {{ e.keycard_id }}</p>
+                <p><strong>Birth Date:</strong> {{ e.birth_date }}</p>     
+                <p><strong>Start Date:</strong> {{ e.start_date }}</p>     
                 <p><strong>Employee ID:</strong> {{ e.employee_id }}</p>
+                <p><strong>Keycard ID:</strong> {{ e.keycard_id }}</p>
                 <p><strong>Status:</strong> {{ e.is_active }}</p>
               </div>
+
 
               <!-- Right: Scanner ID -->
               <div class="details-scanner">
