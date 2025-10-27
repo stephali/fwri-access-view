@@ -7,12 +7,14 @@ The app provides a clear, visual overview of employee facility access logs, link
 ---
 
 ## Features
-- View access logs for all employees
-- Each log includes date/time, entry type (entering/exiting), and employee details
-- Expandable “View” button shows the employee's information and the scanner ID
-- Search and filter by employee name, date, type of entry, status
-- Active vs inactive employee status indicators
-- Runs locally
+- Displays access logs for all employees  
+- Access events are shown in chronological order (latest → oldest)  
+- Each record includes security snapshots, employee profile pictures, date/time, entry type (entering or exiting), and employee details  
+- Expandable "View" button reveals the employee’s full profile information and scanner ID  
+- Search and filter by employee name, date range, entry type, or status  
+- Highlights active vs. inactive employees for quick identification  
+- Runs locally - no database or internet connection required  
+
 
 ---
 
