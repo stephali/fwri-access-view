@@ -25,7 +25,7 @@ Option A - Git Clone
   cd fwri-access-view
 ```
 Option B - Download Zip 
-1. Go to the Github repository page: https://github.com/stephali/fwri-access-view.git
+1. Go to the GitHub repository page: https://github.com/stephali/fwri-access-view.git
 2. Click the green “Code” button → choose “Download ZIP”.
 3. Unzip the file to a folder on your computer.
 4. Open that folder in VS Code or another code editor.
