@@ -19,12 +19,12 @@ The app provides a clear, visual overview of employee facility access logs, link
 ## How to Run
 
 ### Step 1 - Download the Project
-Option A - Git Clone
+*Option A* - Git Clone
 ```bash
   git clone https://github.com/stephali/fwri-access-view.git
   cd fwri-access-view
 ```
-Option B - Download Zip 
+*Option B* - Download Zip 
 1. Go to the GitHub repository page: https://github.com/stephali/fwri-access-view.git
 2. Click the green “Code” button → choose “Download ZIP”.
 3. Unzip the file to a folder on your computer.
