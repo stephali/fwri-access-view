@@ -23,8 +23,8 @@ The app provides a clear, visual overview of employee facility access logs, link
 ### Step 1 - Download the Project
 *Option A* - Git Clone
 ```bash
-  git clone https://github.com/stephali/fwri-access-view.git
-  cd fwri-access-view
+git clone https://github.com/stephali/fwri-access-view.git
+cd fwri-access-view
 ```
 *Option B* - Download Zip 
 1. Go to the GitHub repository page: https://github.com/stephali/fwri-access-view.git
@@ -45,12 +45,12 @@ This app only requires Flask.
 
 You can install it by running:
 ```bash
-  pip install flask
+pip install flask
 ```
 ### Step 4 -  Run the App
 From inside the project folder, run:
 ```bash
-  python app.py
+python app.py
 ```
 You'll see output like:
 ```bash
