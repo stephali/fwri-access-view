@@ -88,8 +88,15 @@ def index():
     # === FILTERING LOGIC ===
     search = request.args.get('search', '').strip().lower()
     employee_query = request.args.get('employee', '').strip().lower()
-    start_date = request.args.get('start_date', '') + " 00:00:00"       # Request start_date and initialize HHMMSS to min value.
-    end_date = request.args.get('end_date', '') + " 23:59:59"           # Request end_date and initialize HHMMSS to max value.
+    
+    start_date = request.args.get('start_date', '')       # Request start_date and initialize HHMMSS to min value.
+    if(start_date):
+        start_date += " 00:00:00"
+
+    end_date = request.args.get('end_date', '')         # Request end_date and initialize HHMMSS to max value.
+    if(end_date):
+        end_date += " 23:59:59" 
+
 
     filtered = combined_entries
 
