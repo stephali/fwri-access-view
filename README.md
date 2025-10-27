@@ -32,6 +32,7 @@ Option B - Download Zip
 
 ### Step 2 - Set Up Python
 Make sure you have Python 3.9 or newer installed.
+
 To check, open Command Prompt (Windows) or Terminal (Mac/Linux) and run:
   python --version
 If Python isn’t installed, download it from https://www.python.org/downloads/   
