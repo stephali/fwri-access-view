@@ -20,10 +20,10 @@ The app displays employee facility security access logs, matching each entry wit
 
 ### Step 1 - Download the Project
 Option A - Git Clone
-In bash:
+```bash
   git clone https://github.com/stephali/fwri-access-view.git
   cd fwri-access-view
-
+```
 Option B - Download Zip 
 1. Go to the Github repository page: https://github.com/stephali/fwri-access-view.git
 2. Click the green “Code” button → choose “Download ZIP”.
@@ -37,26 +37,30 @@ To check, open Command Prompt (Windows) or Terminal (Mac/Linux) and run:
 If Python isn’t installed, download it from https://www.python.org/downloads/   
 
 ### Step 3 - Create a Virtual Environment (optional but recommended)
-In bash:
+```bash
   python -m venv venv
-
+```
 Then activate it:
 Windows -
+```bash
   venv\Scripts\activate
-
+```
 Mac/Linux -
+```bash
   source venv/bin/activate
-
+```
 ### Step 4 -  Install Flask
-In bash:
+```bash
   pip install flask
-
+```
 ### Step 5 -  Run the App
 From inside the project folder, run:
+```bash
   python app.py
-
+```
 You'll see output like:
-* Running on http://127.0.0.1:5000
-
+```bash
+Running on http://127.0.0.1:5000
+```
 Open that link in your web browser, this launches the FWRI Access View Dashboard.
   
