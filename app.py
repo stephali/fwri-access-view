@@ -4,7 +4,7 @@ from datetime import datetime
 
 app = Flask(__name__)
 
-def fmt_iso_date(d):
+def format_date_time(d):
     """Format YYYY-MM-DD -> MM/DD/YYYY; return '' if missing/bad."""
     if not d:
         return ""
@@ -15,7 +15,7 @@ def fmt_iso_date(d):
 
 @app.route('/')
 def index():
-    # === LOAD JSON DATA ===
+    # === Load JSON data ===
     with open('data/employees.json', encoding='utf-8') as f:
         employees = json.load(f)
     with open('data/keycardentries.json', encoding='utf-8') as f:
@@ -25,14 +25,14 @@ def index():
     with open('data/categories.json', encoding='utf-8') as f:
         categories = json.load(f)
 
-    # === CONVERT LISTS TO DICTIONARIES ===
+    # === Convert lists to dictionaries ===
     employees_by_keycard = {e["KeyCardId"]: e for e in employees}
     images_by_id = {i["ImageId"]: i for i in images}
     categories_by_id = {c["categoryId"]: c["categoryName"] for c in categories}
 
     combined_entries = []
 
-    # === BUILD COMBINED ENTRY DATA ===
+    # === Build combined entry data ===
     for entry in entries:
         employee = employees_by_keycard.get(entry["KeyCardId"])
         if not employee:
@@ -42,29 +42,40 @@ def index():
         entry_type = categories_by_id.get(entry["EntryCategoryId"], "Unknown")
 
         # Format event datetime (MM/DD/YYYY HH:MM:SS AM/PM)
-        dt_raw = entry.get("EntryDateTime", "")
+        date_time_raw = entry.get("EntryDateTime", "")
         try:
-            dt_obj = datetime.strptime(dt_raw, "%Y-%m-%dT%H:%M:%SZ")
-            formatted_dt = dt_obj.strftime("%m/%d/%Y %I:%M:%S %p")
+            date_time_obj = datetime.strptime(date_time_raw, "%Y-%m-%dT%H:%M:%SZ")
+            formatted_date_time = date_time_obj.strftime("%m/%d/%Y %I:%M:%S %p")
         except ValueError:
-            formatted_dt = dt_raw or ""
+            formatted_date_time = date_time_raw or ""
 
         # Get employee profile image from Base64
-        profile_img = images_by_id.get(employee.get("ProfilePictureId"))
+        profile_image = images_by_id.get(employee.get("ProfilePictureId"))
         profile_image_src = (
-            f"data:image/{profile_img['ImageExtension']};base64,{profile_img['ImageData']}"
-            if profile_img else None
+            f"data:image/{profile_image['ImageExtension']};base64,{profile_image['ImageData']}"
+            if profile_image else None
         )
 
-        # Fallback for security snapshot
+        # Security snapshot
+        # Attempt to load actual Base64 image, will appear broken because of mock data
+
+        #security_image = images_by_id.get(entry.get("SecurityImageId"))
+        #if security_image:
+        #    ext = security_image["ImageExtension"].lower()
+        #    if ext == "jpg":
+        #        ext = "jpeg"
+        #    security_image_src = f"data:image/{ext};base64,{security_image['ImageData']}"
+
+        # Security image fallback 
         security_image_src = "/static/images/gray.png"
 
         # Format birth and start dates
-        birth_date = fmt_iso_date(employee.get("BirthDate"))
-        start_date = fmt_iso_date(employee.get("StartDate"))
+        birth_date = format_date_time(employee.get("BirthDate"))
+        start_date = format_date_time(employee.get("StartDate"))
 
+        # Complete access event entry
         combined_entries.append({
-            "datetime": formatted_dt,
+            "datetime": formatted_date_time,
             "employee_name": f"{employee.get('FirstName', '')} {employee.get('LastName', '')}",
             "title": employee.get("WorkTitle", ""),
             "email": employee.get("WorkEmail", ""),
@@ -79,13 +90,13 @@ def index():
             "security_image_src": security_image_src
         })
 
-        # === SORT ENTRIES BY DATE/TIME (LATEST FIRST) ===
+        # === Sort entries by date/time (latest first) ===
         combined_entries.sort(
             key=lambda e: datetime.strptime(e["datetime"], "%m/%d/%Y %I:%M:%S %p"),
             reverse=True
         )
 
-    # === FILTERING LOGIC ===
+    # === Filtering logic ===
     search = request.args.get('search', '').strip().lower()
     employee_query = request.args.get('employee', '').strip().lower()
 
@@ -100,7 +111,7 @@ def index():
 
     filtered = combined_entries
 
-    # 1️⃣ Global search: match anything visible in the table
+    # Global search: match anything visible in the table
     if search:
         filtered = [
             e for e in filtered
@@ -114,15 +125,7 @@ def index():
             or search in e['keycard_id'].lower()
         ]
 
-
-    # 2️⃣ Filter by employee name
-    if employee_query:
-        filtered = [
-            e for e in filtered
-            if employee_query in e['employee_name'].lower()
-        ]
-
-    # 3️⃣ Filter by date range
+    # Filter by date range
     if start_date or end_date:
         def to_dt(s):
             try:
@@ -141,7 +144,7 @@ def index():
 
         filtered = tempList
 
-    # === RENDER THE FILTERED ENTRIES ===
+    # === Render the filtered entries ===
     return render_template('index.html', entries=filtered)
 
 if __name__ == '__main__':

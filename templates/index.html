@@ -12,7 +12,6 @@
     <h1><a href="/" class="home-link">FWRI Access View</a></h1>
   </header>
 
-
   <!-- Filter Bar -->
   <form class="filter-bar" method="get" action="/">
     <div class="filter-group">
@@ -30,13 +29,12 @@
       <input type="date" id="end-date" name="end_date" value="{{ request.args.get('end_date', '') }}">
     </div>
 
-    <!-- Inside your filter bar -->
+    <!-- Inside filter bar -->
     <div class="filter-group">
       <button type="submit" class="filter-btn">Filter</button>
       <a href="/" class="clear-btn">Clear</a>
     </div>
   </form>
-
 
   <!-- Title Bar -->
   <div class = "title-bar">
@@ -63,24 +61,15 @@
       <tbody>
         {% for e in entries %}
         <tr>
-          <!-- Snapshot -->
+          <!-- 1. Snapshot -->
           <td>
-            {% if e.security_image_src %}
-              <img src="{{ e.security_image_src }}" alt="snapshot" class="thumb">
-            {% else %}
-              <img src="/static/images/snapshot_placeholder.jpg" alt="snapshot" class="thumb">
-            {% endif %}
+            <img src="{{ e.security_image_src }}" alt="snapshot" class="thumb">
           </td>
 
-          <!-- Employee Photo -->
+          <!-- 2. Employee Photo -->
           <td>
-            {% if e.profile_image_src %}
               <img src="{{ e.profile_image_src }}" alt="Employee photo" class="thumb">
-            {% else %}
-              <img src="/static/images/profile_placeholder.jpg" alt="Employee photo" class="thumb">
-            {% endif %}
           </td>
-
 
           <!-- 3. Date / Time -->
           <td>{{ e.datetime }}</td>
@@ -117,7 +106,6 @@
                 {% endif %}
               </div>
 
-
               <!-- Middle: Employee Info -->
               <div class="details-info">
                 <h3>Employee Information</h3>
@@ -131,7 +119,6 @@
                 <p><strong>Status:</strong> {{ e.is_active }}</p>
               </div>
 
-
               <!-- Right: Scanner ID -->
               <div class="details-scanner">
                 <p><strong>Scanner ID:</strong> {{ e.scanner_id }}</p>
@@ -141,8 +128,6 @@
         </tr>
         {% endfor %}
       </tbody>
-
-
     </table>
   </div>
 
@@ -156,5 +141,6 @@
       });
     });
   </script>
+  
 </body>
 </html>

@@ -25,11 +25,11 @@ body {
 /* Make title link look like a normal heading */
 .home-link {
   text-decoration: none;
-  color: #2b4b7c;          /* same color as before */
+  color: #2b4b7c;          
 }
 
 .home-link:hover {
-  color: #1e365d;          /* darker shade on hover */
+  color: #1e365d;          
 }
 
 /* == Filter Bar == */
@@ -117,13 +117,12 @@ body {
   font-weight: 600;
 }
 
-/* Vertical Line*/
+/* Vertical Line */
 .access-table td:nth-child(2),
 .access-table th:nth-child(2) {
   border-right: 2px solid #e0e0e0;
   padding-right: 3px;   /* reduce space on the right */
 }
-
 
 .thumb {
   width: 60px;
@@ -143,15 +142,12 @@ body {
   font-weight: 600;
 }
 
-/* Buttons */
-/* =====================
-   BUTTON STYLES
-   ===================== */
+/* == Buttons == */
 
-/* --- View Button --- */
+/* View Button */
 .view-btn {
   padding: 6px 12px;
-  background: #2b4b7c;     /* FWRI blue */
+  background: #2b4b7c;     
   color: #fff;
   border: none;
   border-radius: 4px;
@@ -164,10 +160,10 @@ body {
   background: #1e365d;
 }
 
-/* --- Filter Button --- */
+/* Filter Button */
 .filter-btn {
   padding: 6px 14px;
-  background: #1a5f7a;     /* Teal-blue for distinction */
+  background: #1a5f7a;     
   color: #fff;
   border: none;
   border-radius: 4px;
@@ -180,10 +176,10 @@ body {
   background: #144a5e;
 }
 
-/* --- Clear Button --- */
+/* Clear Button */
 .clear-btn {
   padding: 6px 14px;
-  background: #888;        /* Neutral gray */
+  background: #888;        
   color: #fff;
   border: none;
   border-radius: 4px;
@@ -199,8 +195,7 @@ body {
   background: #666;
 }
 
-
-/* Details Row */
+/* == Details Row == */
 .details {
   display: none;
   background: #fafafa;
@@ -252,7 +247,6 @@ body {
   margin: 0;
   font-size: 0.95em;
 }
-
 
 /* == Responsive Design == */
 @media (max-width: 768px) {
