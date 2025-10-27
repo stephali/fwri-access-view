@@ -21,20 +21,6 @@
     </div>
 
     <div class="filter-group">
-      <label for="employee">Search by Employee</label>
-      <input type="text" id="employee" name="employee" list="employee-list"
-            placeholder="Enter first and last name"
-            value="{{ request.args.get('employee', '') }}">
-
-      <datalist id="employee-list">
-        {% for name in entries | map(attribute='employee_name') | unique | sort %}
-          <option value="{{ name }}"></option>
-        {% endfor %}
-      </datalist>
-
-    </div>
-
-    <div class="filter-group">
       <label for="start-date">Start Date</label>
       <input type="date" id="start-date" name="start_date" value="{{ request.args.get('start_date', '') }}">
     </div>
@@ -44,9 +30,10 @@
       <input type="date" id="end-date" name="end_date" value="{{ request.args.get('end_date', '') }}">
     </div>
 
+    <!-- Inside your filter bar -->
     <div class="filter-group">
-      <button type="submit" class="view-btn">Filter</button>
-      <a href="/" class="view-btn" style="background:#888; text-decoration:none;">Clear</a>
+      <button type="submit" class="filter-btn">Filter</button>
+      <a href="/" class="clear-btn">Clear</a>
     </div>
   </form>
 
