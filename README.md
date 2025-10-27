@@ -34,7 +34,8 @@ Option B - Download Zip
 Make sure you have Python 3.9 or newer installed.
 
 To check, open Command Prompt (Windows) or Terminal (Mac/Linux) and run:
-  python --version
+  ``python --version``
+  
 If Python isn’t installed, download it from https://www.python.org/downloads/   
 
 ### Step 3 - Create a Virtual Environment (optional but recommended)
