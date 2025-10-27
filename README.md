@@ -39,6 +39,9 @@ To check, open Command Prompt (Windows) or Terminal (Mac/Linux) and run:
 If Python isn’t installed, download it from https://www.python.org/downloads/   
 
 ### Step 3 -  Install Flask
+This app only requires Flask.  
+
+You can install it by running:
 ```bash
   pip install flask
 ```
