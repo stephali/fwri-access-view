@@ -4,7 +4,6 @@ A Python Flask web application created for the Florida Fish and Wildlife Researc
 
 The app provides a clear visual overview of employee facility access logs, linking each entry to the corresponding staff profile and security camera snapshot.
 
-![FWRI Access View Dashboard](static/images/fwri.png)
 ---
 
 ## Features
@@ -16,6 +15,7 @@ The app provides a clear visual overview of employee facility access logs, linki
 - Highlights active vs. inactive employees for quick identification  
 - Runs locally - no database or internet connection required  
 
+![FWRI Access View Dashboard](static/images/fwri.png)
 
 ---
 
