@@ -39,6 +39,7 @@ To check, open Command Prompt (Windows) or Terminal (Mac/Linux) and run:
 If Python isn’t installed, download it from https://www.python.org/downloads/   
 
 ### Step 3 - Create a Virtual Environment (optional but recommended)
+Create a Python virtual environment
 ```bash
   python -m venv venv
 ```
