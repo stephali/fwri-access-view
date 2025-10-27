@@ -2,7 +2,7 @@
 
 A Python Flask web application created for the Florida Fish and Wildlife Research Institute (FWRI), a division of the Florida Fish and Wildlife Conservation Commission (FWC), as part of the Data Administration Analyst written interview.  
 
-The app provides a clear, visual overview of employee facility access logs, linking each entry to the corresponding staff profile and security camera snapshot.
+The app provides a clear visual overview of employee facility access logs, linking each entry to the corresponding staff profile and security camera snapshot.
 
 ---
 
